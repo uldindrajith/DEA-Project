@@ -262,8 +262,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="exampleFormControlTextarea1" class="m-0 font-weight-bold text-primary">Address</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="date" name="address">
-                                            </textarea>
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="address">
                                         </div>
                                     </div>  
                                     <div class="form-group row">
