@@ -178,15 +178,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 medium"><%= session.getAttribute("first_name")%></span>
-                                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link" href="#">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Settings
-                                    </span>
+                                    <img class="img-profile rounded-circle" src="${pageContext.request.contextPath}/img/user-picture.png">
                                 </a>
                             </li>
                             <li class="nav-item dropdown no-arrow">
@@ -219,11 +211,13 @@
                                         <thead>
                                             <tr>
                                                 <th>Invoice No</th>
+                                                <th>NIC</th>
                                                 <th>First Name</th>
                                                 <th>Last Name</th>
-                                                <th>Model</th>
-                                                <th>Make</th>
+                                                <th>Phone No</th>
                                                 <th>VIN</th>
+                                                <th>Start Mileage</th>
+                                                <th>End Mileage</th>
                                                 <th>Driver</th>
                                                 <th>Reserved Date</th>
                                                 <th>Reserved Until</th>
@@ -234,11 +228,13 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Invoice No</th>
+                                                <th>NIC</th>
                                                 <th>First Name</th>
                                                 <th>Last Name</th>
-                                                <th>Model</th>
-                                                <th>Make</th>
+                                                <th>Phone No</th>
                                                 <th>VIN</th>
+                                                <th>Start Mileage</th>
+                                                <th>End Mileage</th>
                                                 <th>Driver</th>
                                                 <th>Reserved Date</th>
                                                 <th>Reserved Until</th>
@@ -247,19 +243,7 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Tharindu</td>
-                                                <td>KP</td>
-                                                <td>Suzuki</td>
-                                                <td>Swift</td>
-                                                <td>CBJ-1998</td>
-                                                <td>Santa Rajapaksha</td>
-                                                <td>2020/09/01</td>
-                                                <td>2020/09/02</td>
-                                                <td>4500.00</td>
-                                                <td>Paid</td>
-                                            </tr>
+                                            <jsp:include page="/ViewInvoiceServlet" />
                                         </tbody>
                                     </table>
                                 </div>
@@ -306,7 +290,7 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/LogOutServlet">Logout</a>
                     </div>
                 </div>
             </div>

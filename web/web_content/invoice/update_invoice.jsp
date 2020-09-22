@@ -178,15 +178,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 medium"><%= session.getAttribute("first_name")%></span>
-                                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link" href="#">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Settings
-                                    </span>
+                                    <img class="img-profile rounded-circle" src="${pageContext.request.contextPath}/img/user-picture.png">
                                 </a>
                             </li>
                             <li class="nav-item dropdown no-arrow">
@@ -215,120 +207,106 @@
                             </div>
                             <div class="card-body">
 
-                                <form>
+                                <form method="POST" action="${pageContext.request.contextPath}/UpdateDeleteInvoiceServlet">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Invoice ID</label>
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="invoice_id">
+                                        </div>
+                                    </div>
+                                    <hr><hr>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">NIC Number</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="text">
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="nic">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">First Name</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="text" disabled>
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="first_name">
                                         </div>
                                         <div class="col-sm-6">
                                             <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Last Name</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="text" disabled>
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="last_name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Phone Number</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="text" disabled>
-                                        </div>
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Email Address</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="text" disabled>
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="phone_no">
                                         </div>
                                     </div>
                                     <hr><hr>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Date</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="date">
+                                            <input class="form-control" id="exampleFormControlInput1" type="date" name="start_date">
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="exampleFormControlSelect1" class="m-0 font-weight-bold text-primary">Category</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>Select Category</option>
-                                                <option>Luxury</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="exampleFormControlSelect1" class="m-0 font-weight-bold text-primary">Make</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>Select Make</option>
-                                                <option>Toyota</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="exampleFormControlSelect1" class="m-0 font-weight-bold text-primary">Model</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>Select Model</option>
-                                                <option>Premio</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Reserved Until</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="date">
+                                            <input class="form-control" id="exampleFormControlInput1" type="date" name="end_date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Vehicle Identification Number</label>
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="vin">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="exampleFormControlSelect1" class="m-0 font-weight-bold text-primary">With / Without Driver</label>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="driver_status">
+                                                <option value="null">No Change</option>
+                                                <option value="wod">Without Driver</option>
+                                                <option value="wd">With Driver</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="exampleFormControlSelect1" class="m-0 font-weight-bold text-primary">If With Driver, Driver's License Number</label>
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name='dl_no'>
                                         </div>
                                     </div>
                                     <hr><hr>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="exampleFormControlSelect1" class="m-0 font-weight-bold text-primary">With / Without Driver</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>Without Driver</option>
-                                                <option>Santa Rajapaksha</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Fee</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="text" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Starting Mileage</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="text">
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="start_mileage">
                                         </div>
                                         <div class="col-sm-6">
                                             <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">End Mileage</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="text">
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="end_mileage">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="exampleFormControlInput1" class="m-0 font-weight-bold text-primary">Total</label>
-                                            <input class="form-control" id="exampleFormControlInput1" type="text" disabled>
+                                            <input class="form-control" id="exampleFormControlInput1" type="text" name="total">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="exampleFormControlSelect1" class="m-0 font-weight-bold text-primary">Payments</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>Yet To Pay</option>
-                                                <option>Paid</option>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="pay_status">
+                                                <option value="Yet To Pay">Yet To Pay</option>
+                                                <option value="Paid">Paid</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="submit" class="btn btn-primary btn-user btn-block" value="Submit Entry"> 
+                                            <input type="submit" class="btn btn-success btn-user btn-block" name="action" value="Update"> 
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="reset" class="btn btn-info btn-user btn-block" value="Clear Form"> 
+                                            <input type="submit" class="btn btn-danger btn-user btn-block" name="action" value="Delete"> 
                                         </div>
-                                    </div>               
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="reset" class="btn btn-primary btn-user btn-block" value="Clear Form"> 
+                                        </div> 
+                                    </div>                 
                                 </form>
 
                             </div>
@@ -368,13 +346,13 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">Ã</span>
+                            <span aria-hidden="true">×</span>
                         </button>
                     </div>
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/LogOutServlet">Logout</a>
                     </div>
                 </div>
             </div>
