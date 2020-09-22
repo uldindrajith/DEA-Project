@@ -32,8 +32,12 @@ public class ViewCustomerServlet extends HttpServlet {
         try {
             CustomerDAO dao = new CustomerDAO();
             ResultSet result = dao.view();
-            while (result.next()) {
-                out.print("<tr><td>" + result.getString("nic") + "</td><td>" + result.getString("first_name") + "</td><td>" + result.getString("last_name") + "</td><td>" + result.getString("gender") + "</td><td>" + result.getString("phone_no") + "</td><td>" + result.getString("email") + "</td><td>" + result.getString("dl_no") + "</td><td>"+ result.getString("dob") + "</td><td>"+ result.getString("address") + "</td></tr>");
+            if (result.isBeforeFirst()) {
+                while (result.next()) {
+                    out.print("<tr><td>" + result.getString("nic") + "</td><td>" + result.getString("first_name") + "</td><td>" + result.getString("last_name") + "</td><td>" + result.getString("gender") + "</td><td>" + result.getString("phone_no") + "</td><td>" + result.getString("email") + "</td><td>" + result.getString("dl_no") + "</td><td>" + result.getString("dob") + "</td><td>" + result.getString("address") + "</td></tr>");
+                }
+            } else {
+                out.print("<tr><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>");
             }
         } catch (SQLException ex) {
             Logger.getLogger(ViewCustomerServlet.class.getName()).log(Level.SEVERE, null, ex);

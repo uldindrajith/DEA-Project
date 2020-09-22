@@ -17,15 +17,19 @@ public class ViewVehicleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         try {
 
             VehicleDAO dao = new VehicleDAO();
             ResultSet result = dao.view();
-            while (result.next()) {
-                out.print("<tr><td>" + result.getString("vin") + "</td><td>" + result.getString("make") + "</td><td>" + result.getString("model") + "</td><td>" + result.getString("yor") + "</td><td>" + result.getString("serv_from") + "</td><td>" + result.getString("category") + "</td><td>" + result.getString("rate_per_day_wod") + "</td><td>" + result.getString("rate_per_week_wod") + "</td><td>" + result.getString("rate_per_month_wod") + "</td><td>"+ result.getString("excess_mileage_wod") + "</td><td>"+ result.getString("rate_per_day_wd") + "</td><td>"+ result.getString("excess_mileage_wd") + "</td></tr>");
+            if (result.isBeforeFirst()) {
+                while (result.next()) {
+                    out.print("<tr><td>" + result.getString("vin") + "</td><td>" + result.getString("make") + "</td><td>" + result.getString("model") + "</td><td>" + result.getString("yor") + "</td><td>" + result.getString("serv_from") + "</td><td>" + result.getString("category") + "</td><td>" + result.getString("rate_per_day_wod") + "</td><td>" + result.getString("rate_per_week_wod") + "</td><td>" + result.getString("rate_per_month_wod") + "</td><td>" + result.getString("excess_mileage_wod") + "</td><td>" + result.getString("rate_per_day_wd") + "</td><td>" + result.getString("excess_mileage_wd") + "</td></tr>");
+                }
+            } else {
+                out.print("<tr><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>");
             }
         } catch (SQLException ex) {
             Logger.getLogger(ViewVehicleServlet.class.getName()).log(Level.SEVERE, null, ex);

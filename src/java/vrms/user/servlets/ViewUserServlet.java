@@ -23,8 +23,12 @@ public class ViewUserServlet extends HttpServlet {
         try {
             UserDAO dao = new UserDAO();
             ResultSet result = dao.view();
-            while (result.next()) {
-                out.print("<tr><td>" + result.getString("user_name") + "</td><td>" + result.getString("user_role") + "</td><td>" + result.getString("first_name") + "</td><td>" + result.getString("last_name") + "</td><td>" + result.getString("gender") + "</td><td>" + result.getString("phone_no") + "</td><td>" + result.getString("email") + "</td></tr>");
+            if (result.isBeforeFirst()) {
+                while (result.next()) {
+                    out.print("<tr><td>" + result.getString("user_name") + "</td><td>" + result.getString("user_role") + "</td><td>" + result.getString("first_name") + "</td><td>" + result.getString("last_name") + "</td><td>" + result.getString("gender") + "</td><td>" + result.getString("phone_no") + "</td><td>" + result.getString("email") + "</td></tr>");
+                }
+            } else {
+                out.print("<tr><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>");
             }
         } catch (SQLException ex) {
             Logger.getLogger(ViewUserServlet.class.getName()).log(Level.SEVERE, null, ex);

@@ -207,14 +207,14 @@
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Welcome</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Welcome, <%= session.getAttribute("first_name")%></h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="${pageContext.request.contextPath}/img/undraw_performance_overview_p9bm.svg" alt="">
                                     </div>
                                     <h3 align="center">
-                                        Hello, and Welcome to this Java based Web Application!
+                                        <u>Hello, and Welcome to this Java based Web Application!</u>
                                     </h3>
                                     <p align="center">
                                         This Web Application allows you to store and retrieve your day to day data of your Vehicle Rental Business. You can save your invoices,customers,vehicles,
