@@ -1,4 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%! String st1,st2; %>
+<% 
+    if(session.getAttribute("user_role").equals("user")){
+        st1 = "nav-link collapsed btn disabled text-warning";
+        st2 = "collapse-item btn-link disabled text-warning";
+    } else{
+        st1 = "nav-link collapsed";
+        st2 = "collapse-item";
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +28,6 @@
 
         <!-- Custom styles for this template-->
         <link href="${pageContext.request.contextPath}/css/sb-admin-2.css" rel="stylesheet">
-
     </head>
 
     <body id="page-top">
@@ -97,7 +106,7 @@
                     <div id="collapseDrivers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Options:</h6>
-                            <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/drivers/new_driver.jsp">Add New Driver</a>
+                            <a class="<%= st2 %>" href="${pageContext.request.contextPath}/web_content/drivers/new_driver.jsp">Add New Driver</a>
                             <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/drivers/view_driver.jsp">View Driver</a>
                             <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/drivers/update_driver.jsp">Update Driver</a>
                         </div>
@@ -116,7 +125,7 @@
                     <div id="collapseVehicles" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Options:</h6>
-                            <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/vehicles/new_vehicle.jsp">Add New Vehicle</a>
+                            <a class="<%= st2 %>" href="${pageContext.request.contextPath}/web_content/vehicles/new_vehicle.jsp">Add New Vehicle</a>
                             <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/vehicles/view_vehicle.jsp">View Vehicle</a>
                             <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/vehicles/update_vehicle.jsp">Update Vehicle</a>
                         </div>
@@ -128,16 +137,16 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
+                    <a class="<%= st1 %>" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
                         <i class="fas fa-fw fa-user-circle"></i>
                         <span>Users</span>
                     </a>
                     <div id="collapseUsers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Options:</h6>
-                            <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/users/new_user.jsp">Add New User</a>
-                            <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/users/view_user.jsp">View User</a>
-                            <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/users/update_user.jsp">Update User</a>
+                            <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/users/new_user.jsp" class="disabled">Add New User</a>
+                            <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/users/view_user.jsp" class="disabled">View User</a>
+                            <a class="collapse-item" href="${pageContext.request.contextPath}/web_content/users/update_user.jsp" class="disabled">Update User</a>
                         </div>
                     </div>
                 </li>
@@ -211,14 +220,16 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="${pageContext.request.contextPath}/img/undraw_performance_overview_p9bm.svg" alt="">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 20rem;" src="${pageContext.request.contextPath}/img/undraw_performance_overview_p9bm.svg" alt="">
                                     </div>
                                     <h3 align="center">
                                         <u>Hello, and Welcome to this Java based Web Application!</u>
                                     </h3>
                                     <p align="center">
                                         This Web Application allows you to store and retrieve your day to day data of your Vehicle Rental Business. You can save your invoices,customers,vehicles,
-                                        Drivers and User information. View when you need them and Update or Delete as you wish.
+                                        Drivers and User information. View when you need them and Update or Delete as you wish.<br>
+                                        *If you are logged in as a "User" some actions will not be allowed to perform such as adding a vehicle, driver, & user etc. which will be shown in 
+                                        <span class="text-warning">Yellow color.</span>
                                     </p>
                                 </div>
                             </div>
